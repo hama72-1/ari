@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppVault - Download Premium iOS Apps</title>
+    <meta name="description" content="Download premium iOS apps and games without App Store restrictions">
+    <meta name="keywords" content="iOS apps, iPhone games, app store, IPA files, sideload">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#007AFF",
+                        secondary: "#5856D6",
+                        dark: "#1C1C1E",
+                        light: "#F2F2F7"
+                    },
+                    fontFamily: {
+                        sans: ['SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F2F2F7;
+        }
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .badge-verified {
+            background: linear-gradient(135deg, #34C759 0%, #2DBE54 100%);
+        }
+        .badge-trending {
+            background: linear-gradient(135deg, #FF2D55 0%, #FF375F 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-cube text-2xl text-primary"></i>
+                    <span class="text-xl font-bold">AppVault</span>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#featured" class="text-gray-600 hover:text-primary transition">Featured</a>
+                    <a href="#games" class="text-gray-600 hover:text-primary transition">Games</a>
+                    <a href="#apps" class="text-gray-600 hover:text-primary transition">Apps</a>
+                    <a href="#tweaked" class="text-gray-600 hover:text-primary transition">Tweaked</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition">
+                        <i class="fas fa-search text-gray-600"></i>
+                    </button>
+                    <button class="md:hidden focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-12 bg-gradient-to-b from-primary to-secondary text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Premium Apps Without Limits</h1>
+                <p class="text-xl mb-8">Download paid iOS apps and games directly to your iPhone. No jailbreak required.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#how-to" class="bg-white text-primary px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition">How To Install</a>
+                    <a href="#featured" class="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-primary transition">Browse Apps</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How To Section -->
+    <section id="how-to" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">How To Install</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white text-xl font-bold mb-4">1</div>
+                    <h3 class="text-xl font-semibold mb-3">Download IPA File</h3>
+                    <p class="text-gray-600">Tap the download button on any app page to get the IPA file.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white text-xl font-bold mb-4">2</div>
+                    <h3 class="text-xl font-semibold mb-3">Install with AltStore</h3>
+                    <p class="text-gray-600">Use AltStore or Sideloadly to install the IPA on your device.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white text-xl font-bold mb-4">3</div>
+                    <h3 class="text-xl font-semibold mb-3">Trust Developer</h3>
+                    <p class="text-gray-600">Go to Settings > General > Device Management to trust the developer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Apps -->
+    <section id="featured" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold">Featured Apps</h2>
+                <a href="#" class="text-primary font-medium hover:underline">View All</a>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                <!-- App 1 -->
+                <div class="app-card bg-white rounded-xl p-4 shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/200?random=101" alt="Spotify++" class="w-full rounded-lg mb-3">
+                        <span class="badge-verified absolute top-2 right-2 text-white text-xs px-2 py-1 rounded-full">Verified</span>
+                    </div>
+                    <h3 class="font-semibold mb-1 truncate">Spotify++</h3>
+                    <p class="text-gray-500 text-sm mb-2">Music & Audio</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">v8.6.42</span>
+                        <a href="#" class="text-primary text-sm font-medium hover:underline">Install</a>
+                    </div>
+                </div>
+                <!-- App 2 -->
+                <div class="app-card bg-white rounded-xl p-4 shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/200?random=102" alt="YouTube++" class="w-full rounded-lg mb-3">
+                        <span class="badge-verified absolute top-2 right-2 text-white text-xs px-2 py-1 rounded-full">Verified</span>
+                    </div>
+                    <h3 class="font-semibold mb-1 truncate">YouTube++</h3>
+                    <p class="text-gray-500 text-sm mb-2">Video Players</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">v17.36.2</span>
+                        <a href="#" class="text-primary text-sm font-medium hover:underline">Install</a>
+                    </div>
+                </div>
+                <!-- App 3 -->
+                <div class="app-card bg-white rounded-xl p-4 shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/200?random=103" alt="Procreate" class="w-full rounded-lg mb-3">
+                        <span class="badge-trending absolute top-2 right-2 text-white text-xs px-2 py-1 rounded-full">Trending</span>
+                    </div>
+                    <h3 class="font-semibold mb-1 truncate">Procreate</h3>
+                    <p class="text-gray-500 text-sm mb-2">Graphics & Design</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">v5.2.4</span>
+                        <a href="#" class="text-primary text-sm font-medium hover:underline">Install</a>
+                    </div>
+                </div>
+                <!-- App 4 -->
+                <div class="app-card bg-white rounded-xl p-4 shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/200?random=104" alt="Minecraft" class="w-full rounded-lg mb-3">
+                    </div>
+                    <h3 class="font-semibold mb-1 truncate">Minecraft</h3>
+                    <p class="text-gray-500 text-sm mb-2">Games</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">v1.18.2</span>
+                        <a href="#" class="text-primary text-sm font-medium hover:underline">Install</a>
+                    </div>
+                </div>
+                <!-- App 5 -->
+                <div class="app-card bg-white rounded-xl p-4 shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/200?random=105" alt="Notability" class="w-full rounded-lg mb-3">
+                    </div>
+                    <h3 class="font-semibold mb-1 truncate">Notability</h3>
+                    <p class="text-gray-500 text-sm mb-2">Productivity</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">v10.4.5</span>
+                        <a href="#" class="text-primary text-sm font-medium hover:underline">Install</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold">Popular Games</h2>
+                <a href="#" class="text-primary font-medium hover:underline">View All</a>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                <!-- Game 1 -->
+                <div class="app-card bg-white rounded-xl p-4 shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/200?random=201" alt="Call of Duty Mobile" class="w-full rounded-lg mb-3">
+                        <span class="badge-trending absolute top-2 right-2 text-white text-xs px-2 py-1 rounded-full">Trending</span>
+                    </div>
+                    <h3 class="font-semibold mb-1 truncate">Call of Duty Mobile</h3>
+                    <p class="text-gray-500 text-sm mb-2">Action</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">v1.0.36</span>
+                        <a href="#" class="text-primary text-sm font-medium hover:underline">Install</a>
+                    </div>
+                </div>
+                <!-- Game 2 -->
+                <div class="app-card bg-white rounded-xl p-4 shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/200?random=202" alt="PUBG Mobile" class="w-full rounded-lg mb-3">
+                    </div>
+                    <h3 class="font-semibold mb-1 truncate">PUBG Mobile</h3>
+                    <p class="text-gray-500 text-sm mb-2">Battle Royale</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">v1.8.0</span>
+                        <a href="#" class="text-primary text-sm font-medium hover:underline">Install</a>
+                    </div>
+                </div>
+                <!-- Game 3 -->
+                <div class="app-card bg-white rounded-xl p-4 shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/200?random=203" alt="Genshin Impact" class="w-full rounded-lg mb-3">
+                    </div>
+                    <h3 class="font-semibold mb-1 truncate">Genshin Impact</h3>
+                    <p class="text-gray-500 text-sm mb-2">RPG</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">v2.6.0</span>
+                        <a href="#" class="text-primary text-sm font-medium hover:underline">Install</a>
+                    </div>
+                </div>
+                <!-- Game 4 -->
+                <div class="app-card bg-white rounded-xl p-4 shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/200?random=204" alt="Among Us" class="w-full rounded-lg mb-3">
+                    </div>
+                    <h3 class="font-semibold mb-1 truncate">Among Us</h3>
+                    <p class="text-gray-500 text-sm mb-2">Party</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">v2022.3.29</span>
+                        <a href="#" class="text-primary text-sm font-medium hover:underline">Install</a>
+                    </div>
+                </div>
+                <!-- Game 5 -->
+                <div class="app-card bg-white rounded-xl p-4 shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/200?random=205" alt="Roblox" class="w-full rounded-lg mb-3">
+                    </div>
+                    <h3 class="font-semibold mb-1 truncate">Roblox</h3>
+                    <p class="text-gray-500 text-sm mb-2">Adventure</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">v2.537.420</span>
+                        <a href="#" class="text-primary text-sm font-medium hover:underline">Install</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apps Section -->
+    <section id="apps" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold">Premium Apps</h2>
+                <a href="#" class="text-primary font-medium hover:underline">View All</a>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                <!-- App 1 -->
+                <div class="app-card bg-white rounded-xl p-4 shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/200?random=301" alt="Darkroom" class="w-full rounded-lg mb-3">
+                    </div>
+                    <h3 class="font-semibold mb-1 truncate">Darkroom</h3>
+                    <p class="text-gray-500 text-sm mb-2">Photo & Video</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">v5.4.2</span>
+                        <a href="#" class="text-primary text-sm font-medium hover:underline">Install</a>
+                    </div>
+                </div>
+                <!-- App 2 -->
+                <div class="app-card bg-white rounded-xl p-4 shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/200?random=302" alt="Fantastical" class="w-full rounded-lg mb-3">
+                    </div>
+                    <h3 class="font-semibold mb-1 truncate">Fantastical</h3>
+                    <p class="text-gray-500 text-sm mb-2">Productivity</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">v3.6.1</span>
+                        <a href="#" class="text-primary text-sm font-medium hover:underline">Install</a>
+                    </div>
+                </div>
+                <!-- App 3 -->
+                <div class="app-card bg-white rounded-xl p-4 shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/200?random=303" alt="LumaFusion" class="w-full rounded-lg mb-3">
+                    </div>
+                    <h3 class="font-semibold mb-1 truncate">LumaFusion</h3>
+                    <p class="text-gray-500 text-sm mb-2">Video Editing</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">v3.2.1</span>
+                        <a href="#" class="text-primary text-sm font-medium hover:underline">Install</a>
+                    </div>
+                </div>
+                <!-- App 4 -->
+                <div class="app-card bg-white rounded-xl p-4 shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/200?random=304" alt="GoodNotes" class="w-full rounded-lg mb-3">
+                    </div>
+                    <h3 class="font-semibold mb-1 truncate">GoodNotes</h3>
+                    <p class="text-gray-500 text-sm mb-2">Note Taking</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">v5.9.44</span>
+                        <a href="#" class="text-primary text-sm font-medium hover:underline">Install</a>
+                    </div>
+                </div>
+                <!-- App 5 -->
+                <div class="app-card bg-white rounded-xl p-4 shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/200?random=305" alt="Apollo" class="w-full rounded-lg mb-3">
+                    </div>
+                    <h3 class="font-semibold mb-1 truncate">Apollo</h3>
+                    <p class="text-gray-500 text-sm mb-2">Social</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">v1.12.2</span>
+                        <a href="#" class="text-primary text-sm font-medium hover:underline">Install</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tweaked Apps -->
+    <section id="tweaked" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold">Tweaked Apps</h2>
+                <a href="#" class="text-primary font-medium hover:underline">View All</a>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                <!-- App 1 -->
+                <div class="app-card bg-white rounded-xl p-4 shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/200?random=401" alt="Instagram Rocket" class="w-full rounded-lg mb-3">
+                        <span class="badge-verified absolute top-2 right-2 text-white text-xs px-2 py-1 rounded-full">Verified</span>
+                    </div>
+                    <h3 class="font-semibold mb-1 truncate">Instagram Rocket</h3>
+                    <p class="text-gray-500 text-sm mb-2">Social</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">v197.0</span>
+                        <a href="#" class="text-primary text-sm font-medium hover:underline">Install</a>
+                    </div>
+                </div>
+                <!-- App 2 -->
+                <div class="app-card bg-white rounded-xl p-4 shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/200?random=402" alt="YouTube Cercube" class="w-full rounded-lg mb-3">
+                    </div>
+                    <h3 class="font-semibold mb-1 truncate">YouTube Cercube</h3>
+                    <p class="text-gray-500 text-sm mb-2">Video</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">v17.36.2</span>
+                        <a href="#" class="text-primary text-sm font-medium hover:underline">Install</a>
+                    </div>
+                </div>
+                <!-- App 3 -->
+                <div class="app-card bg-white rounded-xl p-4 shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/200?random=403" alt="Twitter++" class="w-full rounded-lg mb-3">
+                    </div>
+                    <h3 class="font-semibold mb-1 truncate">Twitter++</h3>
+                    <p class="text-gray-500 text-sm mb-2">Social</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">v9.12</span>
+                        <a href="#" class="text-primary text-sm font-medium hover:underline">Install</a>
+                    </div>
+                </div>
+                <!-- App 4 -->
+                <div class="app-card bg-white rounded-xl p-4 shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/200?random=404" alt="WhatsApp Watusi" class="w-full rounded-lg mb-3">
+                    </div>
+                    <h3 class="font-semibold mb-1 truncate">WhatsApp Watusi</h3>
+                    <p class="text-gray-500 text-sm mb-2">Messaging</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">v2.23.8</span>
+                        <a href="#" class="text-primary text-sm font-medium hover:underline">Install</a>
+                    </div>
+                </div>
+                <!-- App 5 -->
+                <div class="app-card bg-white rounded-xl p-4 shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://picsum.photos/200?random=405" alt="TikTok God" class="w-full rounded-lg mb-3">
+                    </div>
+                    <h3 class="font-semibold mb-1 truncate">TikTok God</h3>
+                    <p class="text-gray-500 text-sm mb-2">Social</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">v23.1.0</span>
+                        <a href="#" class="text-primary text-sm font-medium hover:underline">Install</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Instructions -->
+    <section class="py-16 bg-gray-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-6">Ready To Download?</h2>
+                <p class="text-xl mb-8">Follow these simple steps to install apps on your iPhone</p>
+                <div class="bg-gray-800 rounded-xl p-8 text-left">
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold mb-3">1. Download AltStore</h3>
+                        <p class="text-gray-300">Install AltStore on your computer from <a href="#" class="text-primary hover:underline">altstore.io</a></p>
+                    </div>
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold mb-3">2. Connect Your iPhone</h3>
+                        <p class="text-gray-300">Plug your iPhone into your computer and trust the device</p>
+                    </div>
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold mb-3">3. Install IPA Files</h3>
+                        <p class="text-gray-300">Download IPA files from AppVault and open them with AltStore</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3">4. Trust Developer</h3>
+                        <p class="text-gray-300">Go to Settings > General > Device Management to trust the developer certificate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-gray-400 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">AppVault</h3>
+                    <p>The best source for premium iOS apps and games. Download directly to your iPhone without restrictions.</p>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition">Home</a></li>
+                        <li><a href="#" class="hover:text-white transition">Featured Apps</a></li>
+                        <li><a href="#" class="hover:text-white transition">Popular Games</a></li>
+                        <li><a href="#" class="hover:text-white transition">Tweaked Apps</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition">How To Install</a></li>
+                        <li><a href="#" class="hover:text-white transition">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white transition">Request App</a></li>
+                        <li><a href="#" class="hover:text-white transition">Report Issue</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-white transition"><i class="fab fa-telegram text-xl"></i></a>
+                        <a href="#" class="hover:text-white transition"><i class="fab fa-discord text-xl"></i></a>
+                        <a href="#" class="hover:text-white transition"><i class="fab fa-twitter text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p>&copy; 2023 AppVault. All rights reserved.</p>
+                <p class="text-sm mt-2">All apps are property of their respective owners. This site does not host any IPA files.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.md\\:hidden');
+        const mobileMenu = document.createElement('div');
+        mobileMenu.className = 'fixed inset-0 bg-white z-50 hidden flex-col items-center justify-center space-y-8';
+        mobileMenu.innerHTML = `
+            <button class="absolute top-4 right-4 text-2xl">
+                <i class="fas fa-times"></i>
+            </button>
+            <a href="#featured" class="text-2xl">Featured</a>
+            <a href="#games" class="text-2xl">Games</a>
+            <a href="#apps" class="text-2xl">Apps</a>
+            <a href="#tweaked" class="text-2xl">Tweaked</a>
+        `;
+        document.body.appendChild(mobileMenu);
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        });
+
+        mobileMenu.querySelector('button').addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+        });
+
+        // Fake download functionality
+        document.querySelectorAll('a[href="#"]').forEach(link => {
+            if (link.textContent.includes('Install')) {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    alert('This is a demo. In a real implementation, this would download the IPA file.');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
